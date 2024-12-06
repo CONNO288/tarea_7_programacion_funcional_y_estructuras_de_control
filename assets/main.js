@@ -67,17 +67,26 @@ const products = [
   // 5. 
   console.log("5. Resumen por Categorías: Usa un bucle para contar cuántos productos hay en cada categoría (electrónica, hogar, alimentos) y devuelve un objeto con este resumen.")
 
-  function productsCategories (){
+  function productsCategories() {
     let categoriesAll = [];
+    
     for (let i = 0; i < products.length; i++) {
-        if (!categoriesAll.includes(products[i].category)) {
-          categoriesAll.push(products[i].category);
-        }
+      const categoryIndex = categoriesAll.findIndex(
+        (item) => item.name === products[i].category
+      );
+  
+      if (categoryIndex === -1) {
+        categoriesAll.push({ name: products[i].category, count: 1 });
+      } else {
+        categoriesAll[categoryIndex].count++;
       }
-      return categoriesAll;
+    }
+  
+    return categoriesAll;
   }
-
   console.log(productsCategories())
+
+
  
  
 
