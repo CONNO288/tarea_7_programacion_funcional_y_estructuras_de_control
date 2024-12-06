@@ -14,3 +14,16 @@ const products = [
   // 1. Filtrar Productos con Descuento: Usa filter para obtener un nuevo array con los productos que tienen un descuento aplicado (es decir, discount > 0).
   let productosConDescuento = products.filter(element => element.discount > 0);
   console.log(productosConDescuento)
+
+  // 2. Calcular el Precio Final con Descuento: Usa map para calcular el precio final de los productos que tienen descuento y crea un nuevo array que incluya el priceAfterDiscount.
+  let productosConPrecioFinalDcto= productosConDescuento.map(element => {;
+    let priceAfterDiscount = element.price -(element.price * element.discount/100);
+    return { ...element, priceAfterDiscount};
+    });
+    console.log(productosConPrecioFinalDcto)
+
+
+    
+
+
+
