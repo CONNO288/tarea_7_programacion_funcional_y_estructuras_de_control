@@ -16,11 +16,37 @@ const products = [
   console.log(productosConDescuento)
 
   // 2. Calcular el Precio Final con Descuento: Usa map para calcular el precio final de los productos que tienen descuento y crea un nuevo array que incluya el priceAfterDiscount.
-  let productosConPrecioFinalDcto= productosConDescuento.map(element => {;
+  let productosConPrecioFinalDcto= productosConDescuento.map(element => {
     let priceAfterDiscount = element.price -(element.price * element.discount/100);
     return { ...element, priceAfterDiscount};
     });
     console.log(productosConPrecioFinalDcto)
+
+  // 3. Identificar Productos con Stock Bajo: Usa un bucle para identificar los productos con menos de 5 unidades en inventario y guárdalos en un array nuevo.
+  //Opción con for:
+
+  let productosConBajoStock_1 = [];
+  for (let i = 0; i < products.length; i++) {
+    if(products[i].stock < 5){
+        productosConBajoStock_1.push(products[i])
+    }      
+  }
+  console.log(productosConBajoStock_1)
+
+  // Opción con while
+  let productosConBajoStock_2 = [];
+  i=0;
+
+  while (i < products.length) {
+    if (products[i].stock < 5) {
+        productosConBajoStock_2.push(products[i]);
+    }
+    i=i+1;
+  }
+  console.log(productosConBajoStock_2)
+ 
+
+
 
 
     
